@@ -46,7 +46,7 @@ These builds may contain experimental features and bugs.
 ---
 
 ## 📜 License
-NotiqApp is licensed under the **MIT License**.  
+NotiqApp is licensed under the **GPL-3.0 license**.  
 See [LICENSE](LICENSE) for details.  
 
 ---
