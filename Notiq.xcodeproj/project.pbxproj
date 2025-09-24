@@ -23,7 +23,7 @@
 		02A82D052E804E830054D22A /* Exceptions for "Notiq-iOS" folder in "Notiq" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Core/Model/NotesContainer.xcdatamodeld,
+				Core/Model/CoreData/NotesContainer.xcdatamodeld,
 				Resources/NotiqIcon.icon,
 			);
 			target = 02724C212E6AE438002FCFC7 /* Notiq */;

@@ -1,0 +1,402 @@
+.
+├── .DS_Store
+├── .git
+│   ├── COMMIT_EDITMSG
+│   ├── FETCH_HEAD
+│   ├── HEAD
+│   ├── branches
+│   ├── config
+│   ├── description
+│   ├── hooks
+│   │   ├── applypatch-msg.sample
+│   │   ├── commit-msg.sample
+│   │   ├── fsmonitor-watchman.sample
+│   │   ├── post-update.sample
+│   │   ├── pre-applypatch.sample
+│   │   ├── pre-commit.sample
+│   │   ├── pre-merge-commit.sample
+│   │   ├── pre-push.sample
+│   │   ├── pre-rebase.sample
+│   │   ├── pre-receive.sample
+│   │   ├── prepare-commit-msg.sample
+│   │   ├── push-to-checkout.sample
+│   │   ├── sendemail-validate.sample
+│   │   └── update.sample
+│   ├── index
+│   ├── info
+│   │   └── exclude
+│   ├── logs
+│   │   ├── HEAD
+│   │   └── refs
+│   │       ├── heads
+│   │       │   └── main
+│   │       └── remotes
+│   │           └── origin
+│   │               ├── HEAD
+│   │               └── main
+│   ├── objects
+│   │   ├── 00
+│   │   │   └── c8e4a15d4e206b3da7ce7a154851301cf24f0a
+│   │   ├── 05
+│   │   │   └── a159ec4e14121f2569de796fdc1e84b5c3d8bf
+│   │   ├── 06
+│   │   │   └── 4f1955cb4373a5bd4ba9792aa946f7b985df2c
+│   │   ├── 07
+│   │   │   └── b4929eea9238ed176b9e004fb91ca2f4c91286
+│   │   ├── 09
+│   │   │   └── 92f576cdddca7ea2715be52ee2ccd94b7862cb
+│   │   ├── 0a
+│   │   │   └── 06f26e3f0807bb20c9fb97cb02eeae198aea76
+│   │   ├── 0c
+│   │   │   └── d753569c964e6b5f318a66dd206e6912117258
+│   │   ├── 12
+│   │   │   └── 3a3e819cd54539e4df77abeb3a29f558086779
+│   │   ├── 14
+│   │   │   └── 870799dc6a073457b2bf1d35383cd74f98e93b
+│   │   ├── 15
+│   │   │   └── 8fd742a3d04ae7b01023dde6038aa7893b77d0
+│   │   ├── 16
+│   │   │   └── b23a2a19de5046c6d5bbadd3a331755cbfcdd7
+│   │   ├── 18
+│   │   │   ├── 6684742470bf567927c025b86a3b80440b18bc
+│   │   │   └── d6c19818bd46c1b829413c7dc262a4987e8851
+│   │   ├── 1b
+│   │   │   └── 338f7ef2eeae1b758b7a3d96c3da6c0e059529
+│   │   ├── 1e
+│   │   │   └── 8e6eea993d3d43637a0e6227a6b39e204d9c2b
+│   │   ├── 23
+│   │   │   └── 6596b4544f8bb7bf7d3fc1e101815be111d226
+│   │   ├── 27
+│   │   │   ├── 5e3e69e5a80d388c562a81bd587b5da05efbc1
+│   │   │   └── 8354fbad0f179d3e545c289c9d20be73e1a50a
+│   │   ├── 2c
+│   │   │   └── 634559cb0e47f6026cecbf50287279bdcba6d1
+│   │   ├── 2d
+│   │   │   └── 7f41985e0b94f2c0d6504ba03ef84cc0d53a23
+│   │   ├── 33
+│   │   │   └── 023bdc4eab16933be5480cc77778ab9f408cd0
+│   │   ├── 3b
+│   │   │   └── 87aa0efc3d4a01b31f5e09cc7ae6cc2cc20853
+│   │   ├── 3c
+│   │   │   └── aa6dd3bae2e7b0dfabca955090739bc64ffe4a
+│   │   ├── 41
+│   │   │   └── 3d5507ad8b021f740ee23055596fe8aa840845
+│   │   ├── 43
+│   │   │   └── 7438a34e93cbbccd621ef71d1433ccf6fa4602
+│   │   ├── 45
+│   │   │   └── 300022042f11d318031c9afae59019d1b6c27c
+│   │   ├── 46
+│   │   │   └── 05a21b0006ffe6daa5f6a18228091cc18ce280
+│   │   ├── 48
+│   │   │   └── 22d26ce6fb18dddbc8d0ef0f4aadfde6c154ec
+│   │   ├── 49
+│   │   │   ├── 651fccfaa794b15ca6af72f9b4116b6085f31f
+│   │   │   └── de951b7b72677948b9fb4e7b23dfaf2eae13bb
+│   │   ├── 4a
+│   │   │   └── f1111327e9e66b2fede1ff1f0ce80569689ca9
+│   │   ├── 4b
+│   │   │   └── 8716c5f9c7f0c1c7814dc46369fc047037aa1b
+│   │   ├── 4e
+│   │   │   └── 017a0d3f86338a2aa779856c55220c048e1a32
+│   │   ├── 4f
+│   │   │   └── 1e642294fcfce41700907c8627fd94eb9c36ae
+│   │   ├── 51
+│   │   │   └── 03fb647073deead09ae1294ecb2fe2e35e5ce9
+│   │   ├── 54
+│   │   │   └── f4b0e15a05292622f726142a9f909495c44783
+│   │   ├── 56
+│   │   │   └── ec8d4e936f2c663863b4995728de88058082c4
+│   │   ├── 57
+│   │   │   ├── 373219c056ca398f8dd367072dc7ade39db213
+│   │   │   └── 66dd7e20c114bb637abea4b2c04dc9944b7bf8
+│   │   ├── 5a
+│   │   │   ├── 6576c6da2431209e16542bdc9e41374f05a17e
+│   │   │   └── b25fdf6e7db59c3d4b4de02ef6b8c2dfc5d7ea
+│   │   ├── 5b
+│   │   │   └── 39e21473009ec44e3010fd592141599337f053
+│   │   ├── 5d
+│   │   │   ├── 1d64b6b4c972c3446e70f4ac7d7c0c47f81a12
+│   │   │   └── 698efb51ec325815c176753b4e337f86665ea5
+│   │   ├── 5f
+│   │   │   └── 67e34bcc0435f911e6bec299647c9e246dfa6f
+│   │   ├── 64
+│   │   │   └── c58b4f222568b47466a8c23e6d3b717fdde090
+│   │   ├── 66
+│   │   │   └── 103505a81a56abea9a90ac8157d43beb07d425
+│   │   ├── 67
+│   │   │   └── 4c22d5f9de2e20316f0ed8b4b1dda9000bb201
+│   │   ├── 69
+│   │   │   └── a2a18b5e1795ced56386e8ceccee0c13ae429d
+│   │   ├── 6b
+│   │   │   └── 305faedb17fef680ee6b0414bc30ed331e4260
+│   │   ├── 6f
+│   │   │   └── 876c8e872999ee8fc99bcb2e9d5f327459854d
+│   │   ├── 73
+│   │   │   └── c00596a7fca3f3d4bdd64053b69d86745f9e10
+│   │   ├── 75
+│   │   │   ├── 49edcbf8c087559eb9b06c1b740bb13faf87b5
+│   │   │   └── dc826a1df2870967c74062d69b53d736cafe3e
+│   │   ├── 76
+│   │   │   └── 57cd390b20ef9532f5a2de8e9fd52e8deaf623
+│   │   ├── 78
+│   │   │   ├── 2aacd2aac3e61f205d1c58156b5b694684a751
+│   │   │   └── 5a725745f4026bd69276e736dc97cef266df46
+│   │   ├── 7a
+│   │   │   └── d81a78aca63a3659f2b04faf5e1a10320edbd2
+│   │   ├── 81
+│   │   │   └── adfa2aa75d3b38c0d3659655078635bd81b3a2
+│   │   ├── 84
+│   │   │   └── 7f373c5fd05919ffc8ef3b10a19ba8ca4571e5
+│   │   ├── 88
+│   │   │   └── 80bc953b445a54b93cd60c5a1a75c64c208e47
+│   │   ├── 89
+│   │   │   ├── 94daaa76c5e65076da9000207bce3a66b89e2f
+│   │   │   ├── bf1b079ad98217443635fcd7e52aa7699dc071
+│   │   │   └── c49e268c2c8b234b194124c3733813e75d28f1
+│   │   ├── 8b
+│   │   │   ├── 3a8fa4f81bdd0e7be2f30f24e4d89e865056fb
+│   │   │   └── 8fbae3f96a730be5db82e2c25dd067fadbf0df
+│   │   ├── 91
+│   │   │   └── 9434a6254f0e9651f402737811be6634a03e9c
+│   │   ├── 93
+│   │   │   └── dfde585d5c37e1265e442f3f1aeecbdc3f538e
+│   │   ├── 94
+│   │   │   └── df7fe8fed3b0c1ec01751f782bc3ec1cda0528
+│   │   ├── 98
+│   │   │   └── 6bd324c26d854187559f27f8194c8afd1795ac
+│   │   ├── 9b
+│   │   │   └── 32f3ecc3d79eb6595dcfcce350cbfa9e444c1b
+│   │   ├── a0
+│   │   │   ├── 6777e39e8e09a3e547fbce5b6d5e26ba32c7aa
+│   │   │   └── ce803689b728a2f962b96ad5ecbb2e336e147f
+│   │   ├── a2
+│   │   │   └── 9301aab96680d961990a7e90d7bc5fd0737fc3
+│   │   ├── a4
+│   │   │   ├── ca0109b14c2208b54e85e8f81b181dc3c2d859
+│   │   │   └── cfaa71b9e1245d36605252161386d14c7684dc
+│   │   ├── a6
+│   │   │   └── 4590adbbbbd30a85cef67e48361f993caa77ec
+│   │   ├── aa
+│   │   │   └── 1fc69cc29477953f0998cbea62057e11a1eda7
+│   │   ├── ab
+│   │   │   └── 6c81cdcd99ecdb2a837ea82119b54fea82e795
+│   │   ├── ac
+│   │   │   ├── a69ec429b707308ba7be75fe8bc3cbbea26374
+│   │   │   └── cb244bac54b6f0ecc588a330959a4c2aac52d1
+│   │   ├── af
+│   │   │   └── 8ab084e77cada6f3949644320837270c646916
+│   │   ├── b0
+│   │   │   └── 427c91a71b001b9c1452cdb2639564f949818e
+│   │   ├── b3
+│   │   │   └── 866bbe9b6cc9bbb52d7eaeeb9abe467db9931f
+│   │   ├── bb
+│   │   │   └── 8a8850337a6398e039bca8efca739d50572cb9
+│   │   ├── bc
+│   │   │   └── c5f61b1533020bce929fb672f819320200529c
+│   │   ├── bd
+│   │   │   └── b1e6bd5c772e00b0473f7495f0d632d30b1d54
+│   │   ├── be
+│   │   │   └── a446e66f96f089d7274f1ec7ee14572cffad14
+│   │   ├── c6
+│   │   │   └── 09cf15df4b141045f553b992f4a54babb0174b
+│   │   ├── c9
+│   │   │   └── 105dbe5cfdbc07c2a88a079946dc0b2a0ed460
+│   │   ├── ca
+│   │   │   └── 09a8f0a4a5ef68bcc2836151fef0506a635e29
+│   │   ├── cb
+│   │   │   └── 75a1d3282265f654d59a40f9363286b0158f25
+│   │   ├── cf
+│   │   │   └── ddfdd901b98ad527e945c886a756fe9fd4986e
+│   │   ├── d0
+│   │   │   └── ba4854e07ad6bc39295288fd9a2ab0a78ecdd8
+│   │   ├── d3
+│   │   │   └── f215ca9b50b511a1cd3cf00c3b3d3aa0b1dfc4
+│   │   ├── d4
+│   │   │   ├── bb9e8c29d6f7c8d3baad49da12ba010beb68d3
+│   │   │   └── f1fdfc53c973dd0c42e99a0f798bdd4bdd586a
+│   │   ├── d5
+│   │   │   └── bb46ba5293dec5118c125e25bba8dedf1f3c39
+│   │   ├── d6
+│   │   │   └── 89d8976f1261cbb223198d3168c32a3c7a368e
+│   │   ├── d9
+│   │   │   └── a5b01962e27908882d7ee73dd95238eab01f83
+│   │   ├── dd
+│   │   │   ├── 3f4e01ec3469d200135407106a84b89bb3fb3b
+│   │   │   └── 695d108359fda2575d179d2bd9144b0f55fb9e
+│   │   ├── de
+│   │   │   └── 173dc49fc643f25b635c472439220cee497a49
+│   │   ├── e1
+│   │   │   └── 89f67d8c8dca4ebf1ee08f4686fbf0638d2729
+│   │   ├── e7
+│   │   │   └── 26d3fe40b7a8ea7cb76d758ce00c507c6ec480
+│   │   ├── e9
+│   │   │   ├── 352c81136290fee630969062ddf3d698f04376
+│   │   │   └── f01cf88bb099f5571f688357116f0494c45cbb
+│   │   ├── eb
+│   │   │   └── 8789700816459c1e1480e0b34781d9fb78a1ca
+│   │   ├── ec
+│   │   │   └── 32df4a3563cabaab4bce9dfac7df0802bdef01
+│   │   ├── ed
+│   │   │   └── 3e08361d1e8fcb0fb4b80a9143a6a393e9579d
+│   │   ├── ef
+│   │   │   └── eeeca7351f19507be281cbef8f198a792b2d13
+│   │   ├── f0
+│   │   │   ├── 6ec9e30d7a42f71c8aab869455f0a915288ddd
+│   │   │   └── ba355c77fee94506f2b6ef97105fa20fcaaa95
+│   │   ├── f1
+│   │   │   └── d8af3a18a39b8f1a5874974fde07d1bfe09732
+│   │   ├── f4
+│   │   │   └── ffc290f8631e150c3fc9e5854b117feb05ddfc
+│   │   ├── fb
+│   │   │   └── 820f53590ed5d5ce22794404d34450c7096e8e
+│   │   ├── fe
+│   │   │   └── 4d92fb85e60dbeef4602e9c0e7b8fe8b15d051
+│   │   ├── info
+│   │   └── pack
+│   │       ├── pack-269aff6b7e61028bbe47a85397d5f8b4a2b48a0c.idx
+│   │       ├── pack-269aff6b7e61028bbe47a85397d5f8b4a2b48a0c.pack
+│   │       └── pack-269aff6b7e61028bbe47a85397d5f8b4a2b48a0c.rev
+│   ├── packed-refs
+│   └── refs
+│       ├── heads
+│       │   └── main
+│       ├── remotes
+│       │   └── origin
+│       │       ├── HEAD
+│       │       └── main
+│       └── tags
+├── LICENSE
+├── MockImage.png
+├── NoteEntity+CoreDataClass.swift
+├── NoteEntity+CoreDataProperties.swift
+├── Notiq
+│   ├── App
+│   │   ├── Info.plist
+│   │   ├── Notiq.entitlements
+│   │   └── NotiqApp.swift
+│   ├── Core
+│   │   ├── Helpers
+│   │   │   ├── AlwaysOnTop.swift
+│   │   │   ├── Binding.swift
+│   │   │   ├── CheckForUpdate.swift
+│   │   │   └── SidebarItem.swift
+│   │   ├── Model
+│   │   │   └── CoreDataManager.swift
+│   │   ├── Root
+│   │   │   └── ContentView.swift
+│   │   ├── ViewModel
+│   │   │   └── NotesViewModel.swift
+│   │   └── Views
+│   │       ├── About
+│   │       │   ├── AboutCommand.swift
+│   │       │   ├── AboutView.swift
+│   │       │   ├── AboutWindow.swift
+│   │       │   └── Attributions Window
+│   │       │       ├── AttributionsView.swift
+│   │       │       └── AttributionsWindow.swift
+│   │       ├── Components
+│   │       │   ├── GridEditNotesView.swift
+│   │       │   ├── ListCellViewMac.swift
+│   │       │   ├── NoteCardViewMac.swift
+│   │       │   ├── OnBoardingView.swift
+│   │       │   └── RoundedCorners.swift
+│   │       ├── Notes
+│   │       │   ├── AllNotesView.swift
+│   │       │   ├── FavoritesView.swift
+│   │       │   ├── ListEditNotesView.swift
+│   │       │   └── TrashView.swift
+│   │       ├── Privacy
+│   │       │   └── PrivacyPolicyView.swift
+│   │       ├── Settings
+│   │       │   ├── GeneralSettingsView.swift
+│   │       │   ├── ResetDataSettingsTab.swift
+│   │       │   └── SettingsWindow.swift
+│   │       └── Sidebar
+│   │           └── SidebarView.swift
+│   ├── Resources
+│   │   ├── .DS_Store
+│   │   ├── Assets.xcassets
+│   │   │   ├── .DS_Store
+│   │   │   ├── AccentColor.colorset
+│   │   │   │   └── Contents.json
+│   │   │   ├── Contents.json
+│   │   │   └── Icon.imageset
+│   │   │       ├── Contents.json
+│   │   │       └── NotiqIcon-iOS-Default-1024x1024@1x.png
+│   │   └── Localizable.xcstrings
+│   └── Utilities
+│       ├── AppKit Extensions
+│       │   └── NSWindow+AlwaysOnTop.swift
+│       ├── Bundle Extensions
+│       │   ├── Bundle+Copyright.swift
+│       │   ├── Bundle+Name.swift
+│       │   └── Bundle+Version.swift
+│       └── WindowReflection.swift
+├── Notiq-iOS
+│   ├── .DS_Store
+│   ├── App
+│   │   └── Notiq_iOSApp.swift
+│   ├── Core
+│   │   ├── Helpers
+│   │   ├── Model
+│   │   │   ├── AuthManager.swift
+│   │   │   └── CoreData
+│   │   │       ├── CoreDataManager.swift
+│   │   │       └── NotesContainer.xcdatamodeld
+│   │   │           └── NotesContainer.xcdatamodel
+│   │   │               └── contents
+│   │   ├── View
+│   │   │   ├── Components
+│   │   │   │   ├── ListCellView.swift
+│   │   │   │   └── OnBoardingView.swift
+│   │   │   ├── Notes
+│   │   │   │   ├── EditNotesView.swift
+│   │   │   │   ├── NotesView.swift
+│   │   │   │   └── TextEditorView.swift
+│   │   │   ├── Privacy
+│   │   │   │   └── PrivacyPolicyView.swift
+│   │   │   ├── Root
+│   │   │   └── Settings
+│   │   │       └── SettingsView.swift
+│   │   └── ViewModel
+│   │       └── NotesViewModel.swift
+│   ├── Extensions
+│   │   └── Extensions.swift
+│   ├── Info.plist
+│   ├── Notiq-iOS.entitlements
+│   └── Resources
+│       ├── Assets.xcassets
+│       │   ├── AccentColor.colorset
+│       │   │   └── Contents.json
+│       │   ├── Contents.json
+│       │   └── Icon.imageset
+│       │       ├── Contents.json
+│       │       └── icon_512x512@2x.png
+│       └── NotiqIcon.icon
+│           ├── Assets
+│           │   ├── text.page 2.png
+│           │   ├── text.page 3.png
+│           │   ├── text.page 4.png
+│           │   └── text.page.png
+│           └── icon.json
+├── Notiq.xcodeproj
+│   ├── project.pbxproj
+│   ├── project.xcworkspace
+│   │   ├── contents.xcworkspacedata
+│   │   ├── xcshareddata
+│   │   │   └── swiftpm
+│   │   │       ├── Package.resolved
+│   │   │       └── configuration
+│   │   └── xcuserdata
+│   │       └── kilianbalaguer.xcuserdatad
+│   │           └── UserInterfaceState.xcuserstate
+│   └── xcuserdata
+│       └── kilianbalaguer.xcuserdatad
+│           ├── xcdebugger
+│           │   └── Breakpoints_v2.xcbkptlist
+│           └── xcschemes
+│               └── xcschememanagement.plist
+├── README.md
+└── structure.txt
+
+172 directories, 228 files
