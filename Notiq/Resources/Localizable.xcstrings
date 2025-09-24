@@ -1,0 +1,299 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "1. Introduction" : {
+
+    },
+    "2. Information We Collect" : {
+
+    },
+    "3. How We Use Your Information" : {
+
+    },
+    "4. Data Sharing" : {
+
+    },
+    "5. Security" : {
+
+    },
+    "6. Contact Us" : {
+
+    },
+    "About %@" : {
+
+    },
+    "About Notiq" : {
+
+    },
+    "Accent Color" : {
+
+    },
+    "Always on top" : {
+
+    },
+    "Appearance" : {
+
+    },
+    "Apply Settings" : {
+
+    },
+    "Are you absolutely sure you want to reset all data and restart the app?" : {
+
+    },
+    "Are you sure?" : {
+
+    },
+    "Attributions" : {
+
+    },
+    "Autosave" : {
+
+    },
+    "Autosave Interval: %lld min" : {
+
+    },
+    "Blue" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Check for Updates…" : {
+
+    },
+    "Continue" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weitermachen"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuer"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Doorgaan"
+          }
+        }
+      }
+    },
+    "Dark Mode" : {
+
+    },
+    "Delete" : {
+
+    },
+    "Delete & Restart" : {
+
+    },
+    "Developed by" : {
+
+    },
+    "Duplicate" : {
+
+    },
+    "Enable Autosave" : {
+
+    },
+    "Favorite" : {
+
+    },
+    "Final Warning" : {
+
+    },
+    "General" : {
+
+    },
+    "Green" : {
+
+    },
+    "Here you can reset everything back to default settings. Be careful: resetting will delete all preferences and requires a restart." : {
+
+    },
+    "Name:" : {
+
+    },
+    "New Note" : {
+
+    },
+    "Notes" : {
+
+    },
+    "Notifications" : {
+
+    },
+    "Notiq" : {
+
+    },
+    "Notiq (“we”, “our”, or “us”) values your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use Notiq." : {
+
+    },
+    "Notiq cares about your privacy. Your data stays secure and private within the app." : {
+
+    },
+    "Orange" : {
+
+    },
+    "Pin" : {
+
+    },
+    "Privacy Policy" : {
+
+    },
+    "Purple" : {
+
+    },
+    "Questions? Reach out at support@notiqapp.com" : {
+
+    },
+    "Red" : {
+
+    },
+    "Refresh Notes" : {
+
+    },
+    "Reset All Data" : {
+
+    },
+    "Reset Data" : {
+
+    },
+    "Search notes..." : {
+
+    },
+    "Select a note" : {
+
+    },
+    "Share" : {
+
+    },
+    "Show Notifications" : {
+
+    },
+    "This action cannot be undone. All saved settings and data will be deleted." : {
+
+    },
+    "This feature is coming soon!\nWork in progress..." : {
+
+    },
+    "This is your display name in Notiq." : {
+
+    },
+    "Title" : {
+
+    },
+    "Toggle Always on Top" : {
+
+    },
+    "Toggle View Mode" : {
+
+    },
+    "Trash" : {
+
+    },
+    "Unfavorite" : {
+
+    },
+    "Unpin" : {
+
+    },
+    "User" : {
+
+    },
+    "Version %@" : {
+
+    },
+    "Version: %@ (%@)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version: %@ (%@)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version: %@ (%@)"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versie: %@ (%@)"
+          }
+        }
+      }
+    },
+    "We do not sell your data. We may share info with third-party services for analytics or cloud sync, with your consent." : {
+
+    },
+    "We may collect:\n- Device information for analytics\n- Optional info you provide (like email)" : {
+
+    },
+    "We use reasonable security measures, but no transmission over the Internet is 100% secure." : {
+
+    },
+    "Welcome to %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willkommen bei %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bienvenue à %@"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welkom bij %@"
+          }
+        }
+      }
+    },
+    "What's new" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Was ist neu"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Qu'est-ce qui est nouveau"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wat is er nieuw"
+          }
+        }
+      }
+    },
+    "Your data is used to:\n- Improve the app experience\n- Fix bugs and issues\n- Analyze trends" : {
+
+    }
+  },
+  "version" : "1.0"
+}

@@ -1,0 +1,33 @@
+{
+  "originHash" : "c442ef86052babc1542d67ea6d74583ebd410f4a20bc5b1a9b5f7ed9648a48d6",
+  "pins" : [
+    {
+      "identity" : "onboardingkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/JamesSedlacek/OnboardingKit.git",
+      "state" : {
+        "revision" : "dfcc967b62878124b6b0f5463fe4fcdad7e5e3c9",
+        "version" : "2.1.2"
+      }
+    },
+    {
+      "identity" : "sparkle",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sparkle-project/Sparkle",
+      "state" : {
+        "revision" : "df074165274afaa39539c05d57b0832620775b11",
+        "version" : "2.7.1"
+      }
+    },
+    {
+      "identity" : "whatsnewkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SvenTiigi/WhatsNewKit.git",
+      "state" : {
+        "revision" : "6157c77e8be9b3d2310bc680681b61a8d9e290ac",
+        "version" : "2.2.1"
+      }
+    }
+  ],
+  "version" : 3
+}
