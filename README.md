@@ -3,6 +3,10 @@
 NotiqApp — An all-in-one productivity app for **macOS, iOS, iPadOS, and watchOS**.  
 Take notes, manage your calendar, set reminders, and stay productive with a simple yet powerful app.  
 
+<div align="center">
+  <img src="MockImage.png">
+</div>
+
 ---
 
 ## ✨ Features
