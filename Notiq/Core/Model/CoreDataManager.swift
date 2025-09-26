@@ -12,7 +12,7 @@ final class CoreDataManager: ObservableObject {
         
         if let description = container.persistentStoreDescriptions.first {
             description.cloudKitContainerOptions = NSPersistentCloudKitContainerOptions(
-                containerIdentifier: "iCloud.NotiqTeam.notiq"
+                containerIdentifier: "iCloud.com.NotiqTeam.NotiqApp"
             )
             if inMemory {
                 description.url = URL(fileURLWithPath: "/dev/null")

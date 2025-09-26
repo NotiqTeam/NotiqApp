@@ -1,0 +1,37 @@
+[
+  {
+    "version": "1.0.0-nightly.1",
+    "new": [
+      {
+        "icon": "sparkles",
+        "title": "First Nightly Release",
+        "subtitle": "You’re among the first to try Notiq. Exciting times ahead!",
+        "body": ""
+      },
+      {
+        "icon": "note.text",
+        "title": "Create Notes Easily",
+        "subtitle": "Quickly jot down your ideas and thoughts in a clean, simple editor.",
+        "body": ""
+      },
+      {
+        "icon": "star.fill",
+        "title": "Favorites",
+        "subtitle": "Mark important notes to access them instantly anytime.",
+        "body": ""
+      },
+      {
+        "icon": "rectangle.grid.2x2",
+        "title": "Grid & List Views",
+        "subtitle": "Switch between a neat list or a stylish grid layout for your notes.",
+        "body": ""
+      },
+      {
+        "icon": "gearshape",
+        "title": "Customize Your Experience",
+        "subtitle": "Adjust settings and layouts to fit your workflow perfectly.",
+        "body": ""
+      }
+    ]
+  }
+]

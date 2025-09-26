@@ -1,7 +1,7 @@
 import SwiftUI
 import Combine
 import OnboardingKit
-import WhatsNewKit
+import SwiftNEW
 
 // MARK: - Main App View
 struct MainAppView: View {
@@ -9,17 +9,38 @@ struct MainAppView: View {
     @EnvironmentObject var faceIDManager: FaceIDManager
 
     @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding: Bool = false
+    @AppStorage("lastSeenWhatsNewVersion") private var lastSeenWhatsNewVersion: String = ""
+    
     @State private var showOnboarding = false
     @State private var searchText: String = ""
     @Environment(\.scenePhase) var scenePhase
+    
+    @State private var showNew = false
+
+    // current app version (from Info.plist)
+    private var appVersion: String {
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0.0"
+    }
 
     var body: some View {
         ZStack {
+            SwiftNEW(
+                show: $showNew,
+                color: .constant(.yellow),
+                size: .constant("normal"),
+                label: .constant("What's New"),
+                labelImage: .constant("sparkles"),
+                history: .constant(true),
+                mesh: .constant(true),
+                specialEffect: .constant(""),
+                glass: .constant(true)
+            )
+
             NativeTabView()
                 .environmentObject(vm)
                 .environmentObject(faceIDManager)
                 .onAppear {
-                    if !hasSeenOnboarding { showOnboarding = true }
+                    // FaceID check
                     faceIDManager.checkForeground()
                 }
                 .onChange(of: scenePhase) { newPhase in
@@ -29,8 +50,7 @@ struct MainAppView: View {
                     default: break
                     }
                 }
-                .whatsNewSheet()
-
+            
             if faceIDManager.isLocked {
                 LockScreenView(faceIDManager: faceIDManager)
                     .transition(.opacity)
@@ -86,8 +106,14 @@ struct LockScreenView: View {
         ZStack {
             Color.gray.ignoresSafeArea()
             VStack(spacing: 20) {
-                Image(systemName: "faceid").resizable().scaledToFit().frame(width: 80, height: 80).foregroundColor(.yellow)
-                Text("Unlock with Face ID").foregroundColor(.white).font(.title2)
+                Image(systemName: "faceid")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 80, height: 80)
+                    .foregroundColor(.yellow)
+                Text("Unlock with Face ID")
+                    .foregroundColor(.white)
+                    .font(.title2)
                 Button("Try Again") { faceIDManager.authenticate() }
                     .buttonStyle(.borderedProminent)
                     .tint(.yellow)
@@ -96,6 +122,7 @@ struct LockScreenView: View {
         .onAppear { faceIDManager.authenticate() }
     }
 }
+
 
 // MARK: - Notes View
 struct NotesView: View {
@@ -255,22 +282,5 @@ struct NotesView: View {
             vm.refreshNotes()
             isRefreshing = false
         }
-    }
-}
-
-// MARK: - Calendar & Reminders placeholders
-struct CalendarView: View {
-    var body: some View {
-        Text("Calendar coming soon").foregroundStyle(.secondary).navigationTitle("Calendar")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(.systemGroupedBackground))
-    }
-}
-
-struct RemindersView: View {
-    var body: some View {
-        Text("Reminders coming soon").foregroundStyle(.secondary).navigationTitle("Reminders")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(.systemGroupedBackground))
     }
 }
