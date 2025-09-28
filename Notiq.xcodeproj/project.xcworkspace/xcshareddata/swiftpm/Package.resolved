@@ -1,5 +1,5 @@
 {
-  "originHash" : "fa376ebacc82b3ad1f2e7c97170206c30f03c0c2cda154e6e2082c7665ca818b",
+  "originHash" : "b268623e2d41d01663ff0a30189292b983a2a61e6089dde9aab6375cddbf00fa",
   "pins" : [
     {
       "identity" : "drops",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "a183ee6f79f21c940092a19c2cba756555422371",
         "version" : "1.7.0"
+      }
+    },
+    {
+      "identity" : "intelligence",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mattcomi/intelligence",
+      "state" : {
+        "branch" : "main",
+        "revision" : "66d2b36297ae4de401fc79e7a4db07e4b5168642"
       }
     },
     {
@@ -35,15 +44,6 @@
       "state" : {
         "revision" : "a012c615c36a3992fb2c9358206de2a2bd253454",
         "version" : "1.9.9"
-      }
-    },
-    {
-      "identity" : "swiftnew",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kilianbalaguer/SwiftNEW",
-      "state" : {
-        "branch" : "main",
-        "revision" : "d42d580c7553a34ee19c2e535c4511850a793061"
       }
     },
     {

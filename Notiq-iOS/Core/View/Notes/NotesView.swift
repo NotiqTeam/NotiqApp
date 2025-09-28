@@ -1,7 +1,7 @@
 import SwiftUI
 import Combine
 import OnboardingKit
-import SwiftNEW
+import WhatsNewKit
 
 // MARK: - Main App View
 struct MainAppView: View {
@@ -15,7 +15,6 @@ struct MainAppView: View {
     @State private var searchText: String = ""
     @Environment(\.scenePhase) var scenePhase
     
-    @State private var showNew = false
 
     // current app version (from Info.plist)
     private var appVersion: String {
@@ -24,18 +23,6 @@ struct MainAppView: View {
 
     var body: some View {
         ZStack {
-            SwiftNEW(
-                show: $showNew,
-                color: .constant(.yellow),
-                size: .constant("normal"),
-                label: .constant("What's New"),
-                labelImage: .constant("sparkles"),
-                history: .constant(true),
-                mesh: .constant(true),
-                specialEffect: .constant(""),
-                glass: .constant(true)
-            )
-
             NativeTabView()
                 .environmentObject(vm)
                 .environmentObject(faceIDManager)
@@ -43,6 +30,10 @@ struct MainAppView: View {
                     // FaceID check
                     faceIDManager.checkForeground()
                 }
+            
+                .whatsNewSheet()
+
+            
                 .onChange(of: scenePhase) { newPhase in
                     switch newPhase {
                     case .active: faceIDManager.checkForeground()
@@ -58,40 +49,37 @@ struct MainAppView: View {
             }
         }
     }
-
-    // MARK: - TabView
+    
+    // MARK: - TabView with Floating Button above Tab Bar
     @ViewBuilder
     func NativeTabView() -> some View {
-        TabView {
-            Tab("Notes", systemImage: "note.text") { NotesView() }
-            Tab("Calendar", systemImage: "calendar") { CalendarView() }
-            Tab("Reminders", systemImage: "checkmark.circle") { RemindersView() }
-            Tab("Settings", systemImage: "gearshape.fill") {
-                SettingsView()
-                    .environmentObject(vm)
-                    .environmentObject(faceIDManager)
-            }
-            Tab("Search", systemImage: "magnifyingglass", role: .search) {
-                NavigationStack {
-                    if filteredNotes.isEmpty {
-                        ContentUnavailableView.search
-                            .navigationTitle("Search")
-                    } else {
-                        List(filteredNotes) { note in
-                            NavigationLink(value: note) {
-                                ListCellView(note: note)
-                            }
-                        }
-                        .navigationTitle("Search")
-                    }
-                }
-                .searchable(text: $searchText, placement: .toolbar, prompt: "Search notes...")
-                .navigationDestination(for: NoteEntity.self) { note in
-                    EditNotesView(note: note).id(note)
+        ZStack(alignment: .bottomTrailing) {
+            TabView {
+                Tab("Notes", systemImage: "note.text") { NotesView() }
+                Tab("Calendar", systemImage: "calendar") { CalendarView() }
+                Tab("Notiq AI", systemImage: "apple.intelligence") { NotiqAIView() }
+                Tab("Reminders", systemImage: "checkmark.circle") { RemindersView() }
+                Tab("Settings", systemImage: "gearshape.fill") {
+                    SettingsView()
+                        .environmentObject(vm)
+                        .environmentObject(faceIDManager)
                 }
             }
+            .tabBarMinimizeBehavior(.onScrollDown)
+            
         }
     }
+
+    /// Helper to get bottom safe area inset
+    private func safeAreaBottom() -> CGFloat {
+        let window = UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .first?.windows.first
+        return window?.safeAreaInsets.bottom ?? 0
+    }
+
+
+
 
     private var filteredNotes: [NoteEntity] {
         vm.notes.filter { searchText.isEmpty || $0.title?.localizedCaseInsensitiveContains(searchText) == true }
@@ -131,6 +119,8 @@ struct NotesView: View {
     @State private var selectedNotePath: [NoteEntity] = []
     @AppStorage("showAsGallery") private var showAsGallery: Bool = false
     @State private var isRefreshing = false
+    @State private var searchText: String = ""
+
 
     var groupedByDate: [Date: [NoteEntity]] {
         let calendar = Calendar.current
@@ -142,6 +132,11 @@ struct NotesView: View {
     }
     var headers: [Date] { groupedByDate.keys.sorted(by: >) }
 
+    // 🔹 filtered notes using local searchText
+    private var filteredNotes: [NoteEntity] {
+        vm.notes.filter { searchText.isEmpty || $0.title?.localizedCaseInsensitiveContains(searchText) == true }
+    }
+    
     var body: some View {
         NavigationStack(path: $selectedNotePath) {
             Group {
@@ -150,7 +145,7 @@ struct NotesView: View {
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 16)], spacing: 16) {
                             ForEach(vm.notes) { note in
                                 NavigationLink(value: note) {
-                                    NoteCardRow(note: note, onDelete: {
+                                    NoteCardView(note: note, onDelete: {
                                         vm.deleteNote(note)
                                         selectedNotePath.removeAll { $0 == note }
                                     })
@@ -162,25 +157,85 @@ struct NotesView: View {
                     .background(Color(.systemGroupedBackground))
                     .refreshable { await refreshData() }
                 } else {
+                    // MARK: Normal List
                     List {
                         ForEach(headers, id: \.self) { header in
                             Section(header: Text(header, style: .date)) {
                                 ForEach(groupedByDate[header] ?? []) { note in
                                     NavigationLink(value: note) {
-                                        NoteRow(note: note)
+                                        ListCellView(note: note)
                                     }
-                                    .contextMenu { noteContextMenu(note) }
+                                    .contextMenu {
+                                            ControlGroup {
+                                                Button { } label: {
+                                                    Text("Share")
+                                                    Image(systemName: "square.and.arrow.up")
+                                                }
+                                                Button { } label: {
+                                                    Text("Move")
+                                                    Image(systemName: "folder")
+                                                }
+                                                Button(role: .destructive) {
+                                                    vm.deleteNote(note)
+                                                    if selectedNotePath.contains(note) {
+                                                        selectedNotePath.removeAll(where: { $0 == note })
+                                                    }
+                                                } label:  {
+                                                    Text("Delete")
+                                                    Image(systemName: "trash")
+                                                }
+                                            }
+                                            Button {
+                                                print("Pin tapped")
+                                            } label: {
+                                                Label("Pin Note", systemImage: "pin")
+                                            }
+                                            Button {
+                                                print("Lock tapped")
+                                            } label: {
+                                                Label("Lock Note", systemImage: "lock")
+                                            }
+                                            Button {
+                                                print("Duplicated tapped")
+                                            } label: {
+                                                Label("Duplicate Note", systemImage: "document.on.document")
+                                            }
+                                        } preview: {
+                                            ScrollView { // preview scrollable
+                                                VStack(alignment: .leading, spacing: 12) {
+                                                    Text(note.title ?? "Untitled")
+                                                        .font(.title2)
+                                                        .bold()
+                                                        .fixedSize(horizontal: false, vertical: true)
+                                                    
+                                                    Text(note.content ?? "")
+                                                        .font(.body)
+                                                        .foregroundStyle(.secondary)
+                                                        .fixedSize(horizontal: false, vertical: true)
+                                                }
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                                .padding()
+                                            }
+                                            .frame(minWidth: 400, maxWidth: 400, minHeight: 500)
+                                            .background(
+                                                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                                    .fill(Color(.systemBackground))
+                                            )
+                                        }
+                                    
                                 }
                                 .onDelete { offsets in deleteNote(in: header, at: offsets) }
+                                
                             }
                         }
                     }
                     .listStyle(.insetGrouped)
-                    .scrollContentBackground(.hidden)
-                    .background(Color(.systemGroupedBackground))
+                    .scrollContentBackground(.hidden) // hide the system list bg
+                    .background(Color(.systemGroupedBackground)) // 👈 re-add proper bg
                     .refreshable { await refreshData() }
                 }
             }
+            .searchable(text: $searchText)
             .navigationTitle("Notes")
             .toolbar { notesToolbar }
             .navigationDestination(for: NoteEntity.self) { note in
@@ -201,22 +256,96 @@ struct NotesView: View {
         }
     }
 
-    struct NoteCardRow: View {
-        @ObservedObject var note: NoteEntity
+    // MARK: - Grid Card View
+    struct NoteCardView: View {
+        let note: NoteEntity
         var onDelete: (() -> Void)? = nil
+        var onFavorite: (() -> Void)? = nil
+
         var body: some View {
             VStack(alignment: .leading, spacing: 6) {
-                Text(note.title ?? "Untitled").font(.headline).lineLimit(1)
-                Text(note.content ?? "").font(.subheadline).foregroundStyle(.secondary).lineLimit(2)
+                Text(note.title ?? "Untitled")
+                    .font(.headline)
+                    .lineLimit(1)
+                    .foregroundStyle(.primary)
+                
+                Text(note.content ?? "")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(2)
+                
+                
                 Spacer()
-                Text(note.timestamp ?? Date(), style: .date).font(.caption2).foregroundStyle(.secondary)
+                
+                Text(note.timestamp ?? Date(), style: .date)
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
             }
             .padding()
             .frame(maxWidth: .infinity, minHeight: 150, maxHeight: 150, alignment: .topLeading)
-            .background(RoundedRectangle(cornerRadius: 20).fill(Color(.secondarySystemGroupedBackground)))
-            .contextMenu { Button(role: .destructive) { onDelete?() } label: { Label("Delete", systemImage: "trash") } }
+            .background(
+                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    .fill(Color(.secondarySystemGroupedBackground))
+            )
+            .tint(.primary)
+            // MARK: - Context menu with preview
+            .contextMenu {
+                ControlGroup {
+                    Button { } label: {
+                        Text("Share")
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                    Button { } label: {
+                        Text("Move")
+                        Image(systemName: "folder")
+                    }
+                    Button(role: .destructive) { onDelete?()
+                    } label:  {
+                        Text("Delete")
+                        Image(systemName: "trash")
+                    }
+                }
+                Button {
+                    print("Pin tapped")
+                } label: {
+                    Label("Pin Note", systemImage: "pin")
+                }
+                Button {
+                    print("Lock tapped")
+                } label: {
+                    Label("Lock Note", systemImage: "lock")
+                }
+                Button {
+                    print("Duplicated tapped")
+                } label: {
+                    Label("Duplicate Note", systemImage: "document.on.document")
+                }
+            } preview: {
+                ScrollView { // enable scrolling
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text(note.title ?? "Untitled")
+                            .font(.title2)
+                            .bold()
+                            .fixedSize(horizontal: false, vertical: true)
+                        
+                        Text(note.content ?? "")
+                            .font(.body)
+                            .foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading) // align content to top-left
+                    .padding()
+                }
+                .frame(minWidth: 400, maxWidth: 400,minHeight: 500) // Width of the preview
+                .background(
+                    RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        .fill(Color(.systemBackground))
+                )
+            }
+            
         }
     }
+
 
     // MARK: - Context Menu
     func noteContextMenu(_ note: NoteEntity) -> some View {
@@ -233,28 +362,36 @@ struct NotesView: View {
                 Button(action: { createNewNote() }) {
                     Label("New", systemImage: "square.and.pencil")
                 }
+                .tint(Color.accentColor)
             }
-
+            
             ToolbarItemGroup(placement: .topBarTrailing) {
+                // Refresh button
                 Button(action: { Task { await refreshData() } }) {
                     Label("Refresh", systemImage: "arrow.clockwise")
                 }
                 .disabled(isRefreshing)
+                .tint(Color.accentColor) // Colors both label and icon
 
+                // Menu with gallery toggle + refresh notes
                 Menu {
                     Button(action: { showAsGallery.toggle() }) {
                         Label(showAsGallery ? "View as List" : "View as Gallery",
                               systemImage: showAsGallery ? "list.bullet" : "square.grid.2x2")
                     }
+                    .tint(Color.yellow) // Colors icon inside menu item
 
                     Button(action: { Task { await refreshData() } }) {
                         Label("Refresh Notes", systemImage: "arrow.clockwise")
                     }
                     .disabled(isRefreshing)
+                    .tint(Color.yellow) // Colors icon inside menu item
                 } label: {
                     Image(systemName: "ellipsis")
                         .font(.title2)
+                        .tint(Color.accentColor) // Colors the ellipsis icon
                 }
+                .tint(Color.accentColor)
             }
         }
     }
@@ -284,3 +421,4 @@ struct NotesView: View {
         }
     }
 }
+

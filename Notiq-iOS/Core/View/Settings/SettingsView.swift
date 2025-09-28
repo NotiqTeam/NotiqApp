@@ -11,6 +11,8 @@ struct SettingsView: View {
     @EnvironmentObject var faceIDManager: FaceIDManager
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var notesVM: NotesViewModel
+    let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0"
+
     
     @State private var accentColor: Color = .blue
     
@@ -94,7 +96,7 @@ struct SettingsView: View {
                     HStack {
                         Text("Version")
                         Spacer()
-                        Text("1.0.0")
+                        Text(version)
                             .foregroundStyle(.secondary)
                     }
                     Link("Privacy Policy", destination: URL(string: "https://yourapp.website/privacy")!)

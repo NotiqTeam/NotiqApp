@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		027978CA2E86DDE000AC2EFE /* SwiftNEW in Frameworks */ = {isa = PBXBuildFile; productRef = 027978C92E86DDE000AC2EFE /* SwiftNEW */; };
-		027978CD2E86DEE300AC2EFE /* SwiftNEW in Frameworks */ = {isa = PBXBuildFile; productRef = 027978CC2E86DEE300AC2EFE /* SwiftNEW */; };
+		02797A072E88047000AC2EFE /* SwiftNEW in Frameworks */ = {isa = PBXBuildFile; productRef = 02797A062E88047000AC2EFE /* SwiftNEW */; };
+		02797A0A2E880AF700AC2EFE /* WhatsNewKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02797A092E880AF700AC2EFE /* WhatsNewKit */; };
 		02B3083F2E81ADB3008E8C8B /* OnboardingKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02B3083E2E81ADB3008E8C8B /* OnboardingKit */; };
 		02C0E1252E81864A0091E702 /* OnboardingKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02C0E1242E81864A0091E702 /* OnboardingKit */; };
 		02D7D8662E6C2D5D007845E0 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 02D7D8652E6C2D5D007845E0 /* Sparkle */; };
+		02E421E42E89384F00978D6A /* Intelligence in Frameworks */ = {isa = PBXBuildFile; productRef = 02E421E32E89384F00978D6A /* Intelligence */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,8 +107,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				02B3083F2E81ADB3008E8C8B /* OnboardingKit in Frameworks */,
-				027978CD2E86DEE300AC2EFE /* SwiftNEW in Frameworks */,
-				027978CA2E86DDE000AC2EFE /* SwiftNEW in Frameworks */,
+				02797A072E88047000AC2EFE /* SwiftNEW in Frameworks */,
+				02797A0A2E880AF700AC2EFE /* WhatsNewKit in Frameworks */,
+				02E421E42E89384F00978D6A /* Intelligence in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,8 +187,9 @@
 			name = "Notiq-iOS";
 			packageProductDependencies = (
 				02B3083E2E81ADB3008E8C8B /* OnboardingKit */,
-				027978C92E86DDE000AC2EFE /* SwiftNEW */,
-				027978CC2E86DEE300AC2EFE /* SwiftNEW */,
+				02797A062E88047000AC2EFE /* SwiftNEW */,
+				02797A092E880AF700AC2EFE /* WhatsNewKit */,
+				02E421E32E89384F00978D6A /* Intelligence */,
 			);
 			productName = "Notiq-iOS";
 			productReference = 02C6ED932E7C84FE00F926E7 /* Notiq-iOS.app */;
@@ -226,7 +229,9 @@
 			packageReferences = (
 				02D7D8642E6C2D5D007845E0 /* XCRemoteSwiftPackageReference "Sparkle" */,
 				02C0E1232E81864A0091E702 /* XCRemoteSwiftPackageReference "OnboardingKit" */,
-				027978CB2E86DEE300AC2EFE /* XCRemoteSwiftPackageReference "SwiftNEW" */,
+				02797A052E88047000AC2EFE /* XCLocalSwiftPackageReference "../SwiftNEW" */,
+				02797A082E880AF700AC2EFE /* XCLocalSwiftPackageReference "../../../Desktop/WhatsNewKit" */,
+				02E421E22E89384F00978D6A /* XCRemoteSwiftPackageReference "intelligence" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 02724C232E6AE438002FCFC7 /* Products */;
@@ -510,7 +515,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Notiq-iOS/Notiq-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2025.09.26;
+				CURRENT_PROJECT_VERSION = "1.0.0-nightly.1";
 				DEVELOPMENT_TEAM = 229G5Z3R2F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -549,7 +554,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Notiq-iOS/Notiq-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2025.09.26;
+				CURRENT_PROJECT_VERSION = "1.0.0-nightly.1";
 				DEVELOPMENT_TEAM = 229G5Z3R2F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -613,15 +618,18 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		027978CB2E86DEE300AC2EFE /* XCRemoteSwiftPackageReference "SwiftNEW" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kilianbalaguer/SwiftNEW";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		02797A052E88047000AC2EFE /* XCLocalSwiftPackageReference "../SwiftNEW" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../SwiftNEW;
 		};
+		02797A082E880AF700AC2EFE /* XCLocalSwiftPackageReference "../../../Desktop/WhatsNewKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../../Desktop/WhatsNewKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
 		02C0E1232E81864A0091E702 /* XCRemoteSwiftPackageReference "OnboardingKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JamesSedlacek/OnboardingKit.git";
@@ -638,17 +646,24 @@
 				minimumVersion = 2.7.1;
 			};
 		};
+		02E421E22E89384F00978D6A /* XCRemoteSwiftPackageReference "intelligence" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mattcomi/intelligence";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		027978C92E86DDE000AC2EFE /* SwiftNEW */ = {
+		02797A062E88047000AC2EFE /* SwiftNEW */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftNEW;
 		};
-		027978CC2E86DEE300AC2EFE /* SwiftNEW */ = {
+		02797A092E880AF700AC2EFE /* WhatsNewKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 027978CB2E86DEE300AC2EFE /* XCRemoteSwiftPackageReference "SwiftNEW" */;
-			productName = SwiftNEW;
+			productName = WhatsNewKit;
 		};
 		02B3083E2E81ADB3008E8C8B /* OnboardingKit */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -664,6 +679,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 02D7D8642E6C2D5D007845E0 /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
+		};
+		02E421E32E89384F00978D6A /* Intelligence */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02E421E22E89384F00978D6A /* XCRemoteSwiftPackageReference "intelligence" */;
+			productName = Intelligence;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
